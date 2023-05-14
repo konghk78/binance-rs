@@ -20,6 +20,8 @@ pub struct ExchangeInformation {
 #[serde(rename_all = "camelCase")]
 pub struct Symbol {
     pub symbol: String,
+    pub pair: String,
+    pub contract_type: String,
     pub status: String,
     pub maint_margin_percent: String,
     pub required_margin_percent: String,

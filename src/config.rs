@@ -5,6 +5,8 @@ pub struct Config {
 
     pub futures_rest_api_endpoint: String,
     pub futures_ws_endpoint: String,
+    pub futures_ws_endpoint_coin_m: String,
+    pub futures_ws_endpoint_vanilla: String,
 
     pub recv_window: u64,
 }
@@ -16,7 +18,9 @@ impl Default for Config {
             ws_endpoint: "wss://stream.binance.com:9443/ws".into(),
 
             futures_rest_api_endpoint: "https://fapi.binance.com".into(),
-            futures_ws_endpoint: "wss://fstream.binance.com/ws".into(),
+            futures_ws_endpoint: "wss://fstream.binance.com".into(),
+            futures_ws_endpoint_coin_m: "wss://dstream.binance.com".into(),
+            futures_ws_endpoint_vanilla: "wss://vstream.binance.com".into(),
 
             recv_window: 5000,
         }
@@ -29,7 +33,9 @@ impl Config {
             .set_rest_api_endpoint("https://testnet.binance.vision")
             .set_ws_endpoint("wss://testnet.binance.vision/ws")
             .set_futures_rest_api_endpoint("https://testnet.binancefuture.com")
-            .set_futures_ws_endpoint("https://testnet.binancefuture.com/ws")
+            .set_futures_ws_endpoint("wss://stream.binancefuture.com")
+            .set_futures_ws_endpoint_coin_m("wss://dstream.binancefuture.com")
+            .set_futures_ws_endpoint_vanilla("wss://vstream.binancefuture.com")
     }
 
     pub fn set_rest_api_endpoint<T: Into<String>>(mut self, rest_api_endpoint: T) -> Self {
@@ -50,6 +56,20 @@ impl Config {
 
     pub fn set_futures_ws_endpoint<T: Into<String>>(mut self, futures_ws_endpoint: T) -> Self {
         self.futures_ws_endpoint = futures_ws_endpoint.into();
+        self
+    }
+
+    pub fn set_futures_ws_endpoint_coin_m<T: Into<String>>(
+        mut self, futures_ws_endpoint_coin_m: T,
+    ) -> Self {
+        self.futures_ws_endpoint_coin_m = futures_ws_endpoint_coin_m.into();
+        self
+    }
+
+    pub fn set_futures_ws_endpoint_vanilla<T: Into<String>>(
+        mut self, futures_ws_endpoint_vanilla: T,
+    ) -> Self {
+        self.futures_ws_endpoint_vanilla = futures_ws_endpoint_vanilla.into();
         self
     }
 
