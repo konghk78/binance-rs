@@ -542,7 +542,7 @@ pub struct OrderUpdate {
     #[serde(rename = "L")]
     pub price_last_filled_trade: String,
 
-    #[serde(skip, rename = "N")]
+    #[serde(rename = "N")]
     pub asset_commisioned: Option<String>,
 
     #[serde(rename = "n")]
