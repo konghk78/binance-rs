@@ -420,7 +420,9 @@ impl FuturesAccount {
             price_protect: order_request.price_protect,
         };
         let order = self.build_order(order);
+        println!("{:#?}", &order);
         let request = build_signed_request(order, self.recv_window)?;
+        println!("{:#?}", &request);
         self.client
             .post_signed(API::Futures(Futures::Order), request)
     }
