@@ -40,6 +40,7 @@ impl From<ContractType> for String {
     }
 }
 
+#[derive(Clone)]
 pub enum PositionSide {
     Both,
     Long,
@@ -56,6 +57,7 @@ impl Display for PositionSide {
     }
 }
 
+#[derive(Clone)]
 pub enum OrderType {
     Limit,
     Market,
@@ -80,6 +82,7 @@ impl Display for OrderType {
     }
 }
 
+#[derive(Clone)]
 pub enum WorkingType {
     MarkPrice,
     ContractPrice,
@@ -95,6 +98,7 @@ impl Display for WorkingType {
 }
 
 #[allow(clippy::all)]
+#[derive(Clone)]
 pub enum TimeInForce {
     GTC,
     IOC,
@@ -131,6 +135,7 @@ struct OrderRequest {
     pub client_order_id: Option<String>,
 }
 
+#[derive(Clone)]
 pub struct CustomOrderRequest {
     pub symbol: String,
     pub side: OrderSide,
