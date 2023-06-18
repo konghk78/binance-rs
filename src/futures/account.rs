@@ -131,7 +131,6 @@ struct OrderRequest {
     pub client_order_id: Option<String>,
 }
 
-#[derive(Clone)]
 pub struct CustomOrderRequest {
     pub symbol: String,
     pub side: OrderSide,
